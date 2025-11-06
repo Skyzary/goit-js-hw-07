@@ -1,10 +1,7 @@
 const emailInput = document.querySelector('input[type="email"]');
-console.log(emailInput)
 const passwordInput = document.querySelector('input[type="password"]');
-console.log(passwordInput)
-const submitButton = document.querySelector('button[type="submit"]');
-console.log(submitButton)
-submitButton.addEventListener('click', (event) => {
+const form = document.querySelector('.login-form')
+form.addEventListener('submit', (event) => {
 	event.preventDefault();
 	const email = emailInput.value.trim();
 	const password = passwordInput.value.trim();
@@ -13,6 +10,7 @@ submitButton.addEventListener('click', (event) => {
 		
 	}
 	else console.log({email: email, password: password})
+	form.reset()
 
 
 

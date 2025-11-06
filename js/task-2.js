@@ -25,15 +25,18 @@ const images = [
   }
 ];
 const gallery = document.querySelector(".gallery");
-for (let i = 0; i < images.length; i++) {
-	const li = document.createElement("li");
-	const img = document.createElement("img");
-	img.src = images[i].url;
-	img.alt = images[i].alt;
-	img.width = 360;
-	img.height = 300;
-	li.append(img);
-	gallery.append(li);
+const gallaryMarkup = images
+  .map(
+    ({ url, alt }) => `
+    <li class="gallery-item">
+      <img src="${url}" alt="${alt}" width="360" height="300" />
+    </li>
+  `
+  )
+  .join("");
+gallery.insertAdjacentHTML('beforeend', gallaryMarkup)
 
-
-}
+gallery.style.display = 'flex'
+gallery.style.flexWrap = 'wrap'
+gallery.style.listStyle = 'none'
+gallery.style.gap = '24px'
